@@ -64,7 +64,7 @@ spec:
       - name: service.type
         value: ClusterIP
   destination:
-    server: https://kubernetes.default.svc
+    server: https://host.docker.internal:61922
     namespace: kargo-demo-uat
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -93,5 +93,5 @@ spec:
       - name: service.type
         value: ClusterIP
   destination:
-    server: https://kubernetes.default.svc
+    server: https://host.docker.internal:61948
     namespace: kargo-demo-prod
