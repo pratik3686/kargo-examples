@@ -29,11 +29,11 @@ spec:
     helm:
       parameters:
       - name: image.repository # We will move new versions of the image into test by updating this field
-        value: 9673483686/some-nginx
+        value: pratik3686/webapp
       - name: image.registry
-        value: ""          
+        value: "ghcr.io"          
       - name: image.tag # We will move new versions of the image into test by updating this field
-        value: 0.0.5        
+        value: 0.0.1       
       - name: service.type
         value: ClusterIP
   destination:
@@ -56,11 +56,11 @@ spec:
     helm:
       parameters:
       - name: image.registry
-        value: ""          
+        value: "ghcr.io"          
       - name: image.repository # We will move new versions of the image into test by updating this field
-        value: 9673483686/some-nginx
+        value: pratik3686/webapp
       - name: image.tag # We will move new versions of the image into test by updating this field
-        value: 0.0.5  
+        value: 0.0.1 
       - name: service.type
         value: ClusterIP
   destination:
@@ -83,11 +83,11 @@ spec:
     helm:
       parameters:
       - name: image.registry
-        value: ""          
+        value: "ghcr.io"          
       - name: image.repository # We will move new versions of the image into test by updating this field
-        value: 9673483686/some-nginx
+        value: pratik3686/webapp
       - name: image.tag # We will move new versions of the image into test by updating this field
-        value: 0.0.5  
+        value: 0.0.1 
       - name: service.type
         value: ClusterIP
   destination:
