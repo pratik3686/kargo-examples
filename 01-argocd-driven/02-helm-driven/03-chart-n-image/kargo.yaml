@@ -26,8 +26,8 @@ spec:
         name: nginx # Watch for new versions of this chart
         semverConstraint: ^14.1
       images:
-      - repoURL: 9673483686/private # Watch for new versions of this image
-        semverConstraint: ^v0.1.21
+      - repoURL: 9673483686/some-nginx # Watch for new versions of this image
+        semverConstraint: ^0.0.5
   promotionMechanisms:
     argoCDAppUpdates:
     - appName: kargo-demo-test
@@ -36,7 +36,7 @@ spec:
         chart: nginx
         helm:
           images:
-          - image: 9673483686/private
+          - image: 9673483686/some-nginx
             key: image.tag
             value: Tag # Update Application to reference the new image version
         updateTargetRevision: true # Update Application to reference the new chart version
@@ -66,7 +66,7 @@ spec:
         chart: nginx
         helm:
           images:
-          - image: 9673483686/private
+          - image: 9673483686/some-nginx
             key: image.tag
             value: Tag # Update Application to reference the new image version
         updateTargetRevision: true # Update Application to reference the new chart version
@@ -88,7 +88,7 @@ spec:
         chart: nginx
         helm:
           images:
-          - image: 9673483686/private
+          - image: 9673483686/some-nginx
             key: image.tag
             value: Tag # Update Application to reference the new image version
         updateTargetRevision: true # Update Application to reference the new chart version
