@@ -32,7 +32,7 @@ spec:
         value: 9673483686/private
       - name: image.registry
         value: "" 
-      - name: global.imagePullSecrets
+      - name: global.imagePullSecrets[0]
         value: "dockerconfigjson"                  
       - name: image.tag # We will move new versions of the image into test by updating this field
         value: v0.1.21      
