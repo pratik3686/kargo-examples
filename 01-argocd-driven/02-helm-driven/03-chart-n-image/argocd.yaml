@@ -79,13 +79,13 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: nginx
-    targetRevision: 14.1.0 # We will move new versions of the chart into prod by updating this field
-    helm:    
+    targetRevision: 14.1.0 # We will move new versions of the chart into stage by updating this field
+    helm:
       parameters:
+      - name: image.registry
+        value: ""          
       - name: image.repository # We will move new versions of the image into test by updating this field
         value: 9673483686/some-nginx
-      - name: image.registry
-        value: ""  
       - name: image.tag # We will move new versions of the image into test by updating this field
         value: 0.0.5  
       - name: service.type
