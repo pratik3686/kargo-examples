@@ -1,25 +1,25 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kargo-demo-test
+  name: kargo-helm-test
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kargo-demo-uat
+  name: kargo-helm-uat
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kargo-demo-prod
+  name: kargo-helm-prod
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kargo-demo-test
+  name: kargo-helm-test
   namespace: argocd
   annotations:
-    kargo.akuity.io/authorized-stage: kargo-demo:test
+    kargo.akuity.io/authorized-stage: kargo-helm:test
 spec:
   project: default
   source:
@@ -32,15 +32,15 @@ spec:
         value: ClusterIP
   destination:
     server: https://kubernetes.default.svc
-    namespace: kargo-demo-test
+    namespace: kargo-helm-test
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kargo-demo-uat
+  name: kargo-helm-uat
   namespace: argocd
   annotations:
-    kargo.akuity.io/authorized-stage: kargo-demo:uat
+    kargo.akuity.io/authorized-stage: kargo-helm:uat
 spec:
   project: default
   source:
@@ -52,16 +52,16 @@ spec:
       - name: service.type
         value: ClusterIP
   destination:
-    server: https://kubernetes.default.svc
-    namespace: kargo-demo-uat
+    server: https://host.docker.internal:61922
+    namespace: kargo-helm-uat
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kargo-demo-prod
+  name: kargo-helm-prod
   namespace: argocd
   annotations:
-    kargo.akuity.io/authorized-stage: kargo-demo:prod
+    kargo.akuity.io/authorized-stage: kargo-helm:prod
 spec:
   project: default
   source:
@@ -73,5 +73,5 @@ spec:
       - name: service.type
         value: ClusterIP
   destination:
-    server: https://kubernetes.default.svc
-    namespace: kargo-demo-test
+    server: https://host.docker.internal:61948
+    namespace: kargo-helm-test

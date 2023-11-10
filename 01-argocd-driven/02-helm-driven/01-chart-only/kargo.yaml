@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kargo-demo
+  name: kargo-helm
   labels:
     kargo.akuity.io/project: "true"
 ---
@@ -9,7 +9,7 @@ apiVersion: kargo.akuity.io/v1alpha1
 kind: PromotionPolicy
 metadata:
   name: test
-  namespace: kargo-demo
+  namespace: kargo-helm
 stage: test
 enableAutoPromotion: true
 ---
@@ -17,7 +17,7 @@ apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
   name: test
-  namespace: kargo-demo
+  namespace: kargo-helm
 spec:
   subscriptions:
     repos:
@@ -27,7 +27,7 @@ spec:
         semverConstraint: ^14.1.0
   promotionMechanisms:
     argoCDAppUpdates:
-    - appName: kargo-demo-test
+    - appName: kargo-helm-test
       sourceUpdates:
       - repoURL: https://charts.bitnami.com/bitnami
         chart: nginx
@@ -37,7 +37,7 @@ apiVersion: kargo.akuity.io/v1alpha1
 kind: PromotionPolicy
 metadata:
   name: uat
-  namespace: kargo-demo
+  namespace: kargo-helm
 stage: uat
 enableAutoPromotion: true
 ---
@@ -45,14 +45,14 @@ apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
   name: uat
-  namespace: kargo-demo
+  namespace: kargo-helm
 spec:
   subscriptions:
     upstreamStages:
     - name: test # Watch for new versions of the chart
   promotionMechanisms:
     argoCDAppUpdates:
-    - appName: kargo-demo-uat
+    - appName: kargo-helm-uat
       sourceUpdates:
       - repoURL: https://charts.bitnami.com/bitnami
         chart: nginx
@@ -62,14 +62,14 @@ apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
   name: prod
-  namespace: kargo-demo
+  namespace: kargo-helm
 spec:
   subscriptions:
     upstreamStages:
     - name: uat # Watch for new versions of the chart
   promotionMechanisms:
     argoCDAppUpdates:
-    - appName: kargo-demo-prod
+    - appName: kargo-helm-prod
       sourceUpdates:
       - repoURL: https://charts.bitnami.com/bitnami
         chart: nginx
