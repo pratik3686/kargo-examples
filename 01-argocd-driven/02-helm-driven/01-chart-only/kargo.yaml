@@ -24,7 +24,7 @@ spec:
       charts:
       - registryURL: https://charts.bitnami.com/bitnami
         name: nginx # Watch for new versions of this chart
-        semverConstraint: ^14
+        semverConstraint: ^15
   promotionMechanisms:
     argoCDAppUpdates:
     - appName: kargo-helm-test
