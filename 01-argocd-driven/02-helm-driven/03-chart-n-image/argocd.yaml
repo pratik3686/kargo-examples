@@ -28,8 +28,10 @@ spec:
     targetRevision: placeholder # We will move new versions of the chart into test by updating this field
     helm:
       parameters:
+      - name: image # We will move new versions of the image into test by updating this field
+        value: 9673483686/some-nginx
       - name: image.tag # We will move new versions of the image into test by updating this field
-        value: placeholder
+        value: 0.0.5      
       - name: service.type
         value: ClusterIP
   destination:
@@ -51,8 +53,10 @@ spec:
     targetRevision: placeholder # We will move new versions of the chart into stage by updating this field
     helm:
       parameters:
-      - name: image.tag
-        value: placeholder # We will move new versions of the image into stage by updating this field
+      - name: image # We will move new versions of the image into test by updating this field
+        value: 9673483686/some-nginx
+      - name: image.tag # We will move new versions of the image into test by updating this field
+        value: 0.0.5  
       - name: service.type
         value: ClusterIP
   destination:
@@ -74,8 +78,10 @@ spec:
     targetRevision: placeholder # We will move new versions of the chart into prod by updating this field
     helm:
       parameters:
-      - name: image.tag
-        value: placeholder # We will move new versions of the image into prod by updating this field
+      - name: image # We will move new versions of the image into test by updating this field
+        value: 9673483686/some-nginx
+      - name: image.tag # We will move new versions of the image into test by updating this field
+        value: 0.0.5  
       - name: service.type
         value: ClusterIP
   destination:
