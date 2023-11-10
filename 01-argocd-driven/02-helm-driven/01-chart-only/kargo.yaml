@@ -4,14 +4,14 @@ metadata:
   name: kargo-helm
   labels:
     kargo.akuity.io/project: "true"
----
-apiVersion: kargo.akuity.io/v1alpha1
-kind: PromotionPolicy
-metadata:
-  name: test
-  namespace: kargo-helm
-stage: test
-enableAutoPromotion: true
+# ---
+# apiVersion: kargo.akuity.io/v1alpha1
+# kind: PromotionPolicy
+# metadata:
+#   name: test
+#   namespace: kargo-helm
+# stage: test
+# enableAutoPromotion: true
 ---
 apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
@@ -24,7 +24,7 @@ spec:
       charts:
       - registryURL: https://charts.bitnami.com/bitnami
         name: nginx # Watch for new versions of this chart
-        semverConstraint: ^15
+        semverConstraint: ^14
   promotionMechanisms:
     argoCDAppUpdates:
     - appName: kargo-helm-test
