@@ -24,7 +24,7 @@ spec:
       charts:
       - registryURL: https://charts.bitnami.com/bitnami
         name: nginx # Watch for new versions of this chart
-        semverConstraint: ^14.1.0
+        semverConstraint: ^14.1
       images:
       - repoURL: 9673483686/some-nginx # Watch for new versions of this image
         semverConstraint: ^0.0.5
