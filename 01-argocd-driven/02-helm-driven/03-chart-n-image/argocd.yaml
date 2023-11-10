@@ -29,11 +29,13 @@ spec:
     helm:
       parameters:
       - name: image.repository # We will move new versions of the image into test by updating this field
-        value: 9673483686/some-nginx
+        value: 9673483686/private
       - name: image.registry
-        value: ""          
+        value: "" 
+      - name: global.imagePullSecrets
+        value: "dockerconfigjson"                  
       - name: image.tag # We will move new versions of the image into test by updating this field
-        value: 0.0.5        
+        value: v0.1.21      
       - name: service.type
         value: ClusterIP
   destination:
@@ -58,9 +60,9 @@ spec:
       - name: image.registry
         value: ""          
       - name: image.repository # We will move new versions of the image into test by updating this field
-        value: 9673483686/some-nginx
+        value: 9673483686/private
       - name: image.tag # We will move new versions of the image into test by updating this field
-        value: 0.0.5  
+        value: v0.1.21
       - name: service.type
         value: ClusterIP
   destination:
@@ -85,9 +87,9 @@ spec:
       - name: image.registry
         value: ""          
       - name: image.repository # We will move new versions of the image into test by updating this field
-        value: 9673483686/some-nginx
+        value: 9673483686/private
       - name: image.tag # We will move new versions of the image into test by updating this field
-        value: 0.0.5  
+        value: v0.1.21 
       - name: service.type
         value: ClusterIP
   destination:
