@@ -29,7 +29,7 @@ spec:
     helm:
       parameters:
       - name: image.repository # We will move new versions of the image into test by updating this field
-        value: pratik3686/webapp
+        value: pratik3686/netflix
       - name: image.registry
         value: "ghcr.io"          
       - name: image.tag # We will move new versions of the image into test by updating this field
@@ -58,7 +58,7 @@ spec:
       - name: image.registry
         value: "ghcr.io"          
       - name: image.repository # We will move new versions of the image into test by updating this field
-        value: pratik3686/webapp
+        value: pratik3686/netflix
       - name: image.tag # We will move new versions of the image into test by updating this field
         value: 0.0.1 
       - name: service.type
@@ -85,11 +85,11 @@ spec:
       - name: image.registry
         value: "ghcr.io"          
       - name: image.repository # We will move new versions of the image into test by updating this field
-        value: pratik3686/webapp
+        value: pratik3686/netflix
       - name: image.tag # We will move new versions of the image into test by updating this field
         value: 0.0.1 
       - name: service.type
-        value: ClusterIP
+        value: NodePort
   destination:
     server: https://host.docker.internal:61948
     namespace: kargo-demo-prod
