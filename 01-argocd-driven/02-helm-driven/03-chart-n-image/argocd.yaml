@@ -28,6 +28,8 @@ spec:
     targetRevision: 14.1.0 # We will move new versions of the chart into test by updating this field
     helm:
       parameters:
+      - name: global.imagePullSecrets[0]
+        value: dockerconfigjson       
       - name: image.repository # We will move new versions of the image into test by updating this field
         value: pratik3686/netflix
       - name: image.registry
